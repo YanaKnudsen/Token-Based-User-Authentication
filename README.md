@@ -4,7 +4,9 @@ This project provides a secure, token-based authentication solution for web appl
 ## Tech Stack
 
 - Backend: Node.js, Express
-- Frontend:React
+- Frontend: React
 - Authentication: JSON Web Tokens (JWT)
 - Database: MongoDB (or compatible databases)
 - Security: BCrypt for password hashing
+
+<img width="1341" alt="LoginImg" src="https://github.com/user-attachments/assets/f6ac524e-8be4-4b4e-9a5f-60e92df88f9b">
