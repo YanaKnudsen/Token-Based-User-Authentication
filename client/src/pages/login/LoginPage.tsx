@@ -1,12 +1,13 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faXmark} from "@fortawesome/free-solid-svg-icons";
-import {Link} from "react-router-dom";
+
 import "./loginPage.scss"
 import { observer } from "mobx-react";
 import store from "../../mobx/AppDataStore.ts";
 import AxiosInstance from "../../axios/AxiosInstance.tsx";
 import {useState} from "react";
 import {Navigate} from "react-router-dom";
+import {theme,desriptiontheme} from "../../themes/theme.tsx";
+import {ThemeProvider, Typography} from "@mui/material";
+
 
 
 function LoginPage() {
@@ -73,22 +74,34 @@ function LoginPage() {
         <div className="main">
             <div className="loginField">
                 <div className="loginInner">
-                <h1>Welcome back!</h1>
+                    <div className="blur"/>
+                    <div className="content">
+                        <ThemeProvider theme={theme} >
+                            <Typography variant="h4" >Welcome!</Typography>
+                        </ThemeProvider>
                     <div className="inputName">
-                        Email
+                        <ThemeProvider theme={desriptiontheme} >
+                            <Typography variant="h6" >Email</Typography>
+                        </ThemeProvider>
                     </div>
                     <input placeholder="Email" value={loginEmail}
                            onChange={e => setLoginEmail(e.target.value)}/>
                     <div className="inputName">
-                        Password
+                        <ThemeProvider theme={desriptiontheme} >
+                            <Typography variant="h6" >Password</Typography>
+                        </ThemeProvider>
                     </div>
                     <input placeholder="Password" value={loginPassword}
                            onChange={e => setLoginPassword(e.target.value)}/>
+                    <div className="btn" onClick={handleLogin}>
+                        <ThemeProvider theme={desriptiontheme} >
+                            <Typography variant="h6" >Log In</Typography>
+                        </ThemeProvider>
+                    </div>
+                    </div>
 
                 </div>
-                <div className="btn" onClick={handleLogin}>
-                    Log In
-                </div>
+
             </div>
         </div>
 

@@ -19,8 +19,7 @@ function IndexPage() {
    }
     return (
         <div >
-            <Header/>
-            <ThinLine/>
+
 
             <LoginPage/>
 
