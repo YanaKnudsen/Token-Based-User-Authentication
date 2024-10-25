@@ -6,7 +6,8 @@ import store from "../mobx/AppDataStore.ts";
 import LoginPage from "./login/LoginPage.tsx";
 
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import SignUpPage from "./login/SignUpPage.tsx";
 
 function IndexPage() {
     //implement also for header
@@ -17,14 +18,16 @@ function IndexPage() {
    function openSignUpPage(){
        store.setIsSignUpOpen(true);
    }
+
+    useEffect(() => {
+        store.setIsLoginOpen(true);
+    }, []);
+
     return (
-        <div >
+        <div className="main">
 
-
-            <LoginPage/>
-
-            {/*(store.isLoginOpen||store.isSignUpOpen) &&
-                (<LoginPage/>) */}
+            {store.isLoginOpen?
+                (<LoginPage/>):(<SignUpPage/>)}
         </div>
 
     )

@@ -4,7 +4,7 @@ $themeColor: #60adb2;
 
 
 //borders
-$borderS:7px;
+$borderS:5px;
 $borderM:14px;
 
 
@@ -73,6 +73,12 @@ $borderM:14px;
     padding:10px 15px;
     background-color:$themeColor;
     border-radius: $borderS;
+    cursor: pointer;
+  }
+  span{
+    padding: 1% 0;
+    text-decoration: underline;
+    cursor: pointer;
   }
 
 }

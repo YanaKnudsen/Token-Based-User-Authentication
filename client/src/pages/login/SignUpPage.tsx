@@ -42,8 +42,8 @@ function LoginPage() {
 
     async function handleLogin(ev){
         ev.preventDefault();
-       // console.log(loginEmail);
-       // console.log(loginPassword);
+        // console.log(loginEmail);
+        // console.log(loginPassword);
 
         AxiosInstance.post('/login',{loginEmail,loginPassword},{withCredentials:true})
             .then(res => {
@@ -68,46 +68,51 @@ function LoginPage() {
     }
 
 
-
-
     return (
 
-            <div className="loginField">
-                <div className="loginInner">
-                    <div className="blur"/>
-                    <div className="content">
-                        <ThemeProvider theme={theme} >
-                            <Typography variant="h4" >Welcome!</Typography>
+        <div className="loginField">
+            <div className="loginInner">
+                <div className="blur"/>
+                <div className="content">
+                    <ThemeProvider theme={theme} >
+                        <Typography variant="h4" >Welcome!</Typography>
+                    </ThemeProvider>
+                    <div className="inputName">
+                        <ThemeProvider theme={desriptiontheme} >
+                            <Typography variant="h6" >Name</Typography>
                         </ThemeProvider>
+                    </div>
+                    <input placeholder="Name" value={name}
+                           onChange={e => setName(e.target.value)}/>
                     <div className="inputName">
                         <ThemeProvider theme={desriptiontheme} >
                             <Typography variant="h6" >Email</Typography>
                         </ThemeProvider>
                     </div>
-                    <input placeholder="Email" value={loginEmail}
-                           onChange={e => setLoginEmail(e.target.value)}/>
+                    <input placeholder="Email" value={email}
+                           onChange={e => setEmail(e.target.value)}/>
                     <div className="inputName">
                         <ThemeProvider theme={desriptiontheme} >
                             <Typography variant="h6" >Password</Typography>
                         </ThemeProvider>
                     </div>
-                    <input placeholder="Password" value={loginPassword}
-                           onChange={e => setLoginPassword(e.target.value)}/>
-                    <div className="btn" onClick={handleLogin}>
+                    <input placeholder="Password" value={password}
+                           onChange={e => setPassword(e.target.value)}/>
+                    <div className="btn" onClick={handleSignUp}>
                         <ThemeProvider theme={desriptiontheme} >
-                            <Typography variant="h6" >Log In</Typography>
+                            <Typography variant="h6" >Sign Up</Typography>
                         </ThemeProvider>
                     </div>
-                        <ThemeProvider theme={desriptiontheme} >
-                            <Typography variant="h6" >Don't have an account yet? <span onClick={()=>{
-                                store.setIsLoginOpen(!store.isLoginOpen);
-                            }}>Sign Up</span></Typography>
-                        </ThemeProvider>
-                    </div>
-
+                    <ThemeProvider theme={desriptiontheme} >
+                        <Typography variant="h6" >Already have an account? <span onClick={()=>{
+                            store.setIsLoginOpen(!store.isLoginOpen);
+                        }}>Log In</span></Typography>
+                    </ThemeProvider>
                 </div>
 
             </div>
+
+        </div>
 
 
     )

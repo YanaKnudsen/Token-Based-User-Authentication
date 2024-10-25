@@ -26,7 +26,7 @@ const bcryptSalt=bcrypt.genSaltSync(8);
 app.use(express.json());
 app.use(cors({
     credentials:true,
-    origin:'http://localhost:5173',
+    origin:'http://localhost:5174',
 }));
 //app.use(cors());
 
@@ -46,11 +46,11 @@ mongoose.connect(process.env.MONGO_URL);
 
 io.on("connection",(socket)=>{
 
-         socket.on("join_video_room",(data)=>{
-         console.log(data.room,data.user);
-         socket.join(data.room);
-         socket.to(data.room).emit("user_connected",data.user);
-      });
+    socket.on("join_video_room",(data)=>{
+        console.log(data.room,data.user);
+        socket.join(data.room);
+        socket.to(data.room).emit("user_connected",data.user);
+    });
 })
 
 
