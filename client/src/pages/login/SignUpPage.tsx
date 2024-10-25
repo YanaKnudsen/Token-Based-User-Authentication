@@ -30,6 +30,7 @@ function LoginPage() {
             .then(res => {
                 // Handle response
                 alert('Registration Successful. Now you can login.')
+                store.setIsLoginOpen(!store.isLoginOpen);
 
             })
             .catch(err => {

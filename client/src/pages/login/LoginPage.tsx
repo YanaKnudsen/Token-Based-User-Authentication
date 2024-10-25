@@ -52,7 +52,8 @@ function LoginPage() {
                 AxiosInstance.get('/profile',{ headers: {"Authorization" : `Bearer ${store.accessToken}`} })
                     .then(res=>{
                         store.setUser(res.data);
-                        setRedirect(true);
+                        alert('Login Successful!');
+                       // setRedirect(true);
                     })
                     .catch(err=>{
 
