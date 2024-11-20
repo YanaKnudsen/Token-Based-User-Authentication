@@ -29,8 +29,10 @@ app.use(cors({
 mongoose.connect(process.env.MONGO_URL);
 
 const loginRouter=require('./routes/login');
-app.use("/login",loginRouter);
+const signupRouter=require('./routes/signup');
 
+app.use("/login",loginRouter);
+app.use("/signup",signupRouter);
 
 
 
