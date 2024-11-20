@@ -1,20 +1,23 @@
 {
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev-start": "nodemon index.js"
+    "dev-start": "nodemon index.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "http": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",
     "mongoose": "^8.4.4",
-    "nodemon": "^3.1.4",
-    "socket.io": "^4.7.5",
-    "uuid": "^10.0.0"
+    "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.9.1",
+    "typescript": "^5.6.3"
   }
 }
