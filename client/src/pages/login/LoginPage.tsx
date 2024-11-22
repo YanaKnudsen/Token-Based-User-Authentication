@@ -37,7 +37,7 @@ function LoginPage() {
                     .then(res=>{
                         store.setUser(res.data);
                         alert('Login Successful!');
-                       // setRedirect(true);
+                        setRedirect(true);
                     })
                     .catch(err=>{
 

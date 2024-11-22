@@ -5,8 +5,7 @@ const router =express.Router();
 
 
 router.get('/',authenticateToken,(req:Request,res:Response)=> {
-
-    res.json(res.locals.user);
+    res.json({name:res.locals.user.name,email:res.locals.user.email});
 
 });
 

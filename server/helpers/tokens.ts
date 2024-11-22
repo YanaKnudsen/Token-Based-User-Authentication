@@ -6,7 +6,7 @@ const jwt=require("jsonwebtoken");
 // function for generating access token
 export function generateAccessToken(userInfo:User){
     //15min
-    return jwt.sign({email:userInfo.email, id:userInfo._id,},process.env.ACCESS_TOKEN_SECRET,{});
+    return jwt.sign({email:userInfo.email, _id:userInfo._id,},process.env.ACCESS_TOKEN_SECRET,{});
 }
 
 
@@ -18,13 +18,11 @@ export function authenticateToken(req:Request,res:Response,next:NextFunction){
         return res.sendStatus(401);
     }
     else{
-        jwt.verify(accessToken,process.env.ACCESS_TOKEN_SECRET,async (err:Error,user:any)=>{
-
+        jwt.verify(accessToken,process.env.ACCESS_TOKEN_SECRET,async (err:Error,user:User)=>{
+            console.log("user",user)
             if (err) res.sendStatus(403);
-            console.log(user);
             const {email}=user;
-            console.log(email);
-            const userInfo = await UserModel.findOne({email: email});
+            const userInfo:User = await UserModel.findOne({email: email});
             res.locals.user=userInfo;
             next();
         });
