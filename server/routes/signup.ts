@@ -5,9 +5,9 @@ const bcrypt=require("bcryptjs");
 const UserModel = require("../models/UserModel");
 
 const router =express.Router();
-const bcryptSalt=bcrypt.genSaltSync(8);
+const bcryptSalt= bcrypt.genSaltSync(8);
 
-router.get("/",async (req:Request,res:Response) =>{
+router.post("/",async (req:Request,res:Response) =>{
     const {name,email,password}=req.body;
     try{
         //create user in the database

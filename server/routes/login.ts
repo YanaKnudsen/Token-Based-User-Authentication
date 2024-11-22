@@ -1,4 +1,5 @@
 import {NextFunction, Request, Response} from "express";
+import {User} from "../@types/User";
 const express=require('express');
 const bcrypt=require("bcryptjs");
 const router =express.Router();
@@ -7,14 +8,14 @@ const UserModel = require("../models/UserModel");
 //import helpers
 const {generateAccessToken} = require('../helpers/tokens')
 
-router.get("/",async (req:Request,res:Response) =>{
+router.post("/",async (req:Request,res:Response) =>{
    const {loginEmail,loginPassword}=req.body;
    //find user with this email in the databse
-   const userInfo = await UserModel.findOne({loginEmail})
+   const userInfo:User = await UserModel.findOne({loginEmail})
    //if user exists in the database
    if(userInfo){
       //compare passwords
-      const passOk=bcrypt.compareSync(loginPassword,userInfo.password);
+      const passOk= await bcrypt.compareSync(loginPassword,userInfo.password);
       if(passOk){
          //generate AccessToken
          const accessToken = generateAccessToken(userInfo);
@@ -31,7 +32,6 @@ router.get("/",async (req:Request,res:Response) =>{
       //send status
       res.json('user not found');
    }
-   res.send('login here');
 })
 
 
