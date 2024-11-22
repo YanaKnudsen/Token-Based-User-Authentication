@@ -30,13 +30,14 @@ mongoose.connect(process.env.MONGO_URL);
 
 const loginRouter=require('./routes/login');
 const signupRouter=require('./routes/signup');
-
+const profileRouter=require('./routes/profile');
 app.use("/login",loginRouter);
 app.use("/signup",signupRouter);
+app.use("/profile",profileRouter);
 
 
 
-//run server on port 40000
+//run server on port 3000
 app.listen(3000,()=>{
     console.log(`app is running on port 3000`);
 });

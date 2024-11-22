@@ -23,22 +23,6 @@ function LoginPage() {
         store.setIsSignUpOpen(false);
     }
 
-    async function handleSignUp(ev){
-        ev.preventDefault();
-
-        AxiosInstance.post('/signup',{name,email,password},{withCredentials:true})
-            .then(res => {
-                // Handle response
-                alert('Registration Successful. Now you can login.')
-
-            })
-            .catch(err => {
-                // Handle errors
-                console.error(err);
-                alert('Registration failed. Please try again.')
-            });
-
-    }
 
     async function handleLogin(ev){
         ev.preventDefault();

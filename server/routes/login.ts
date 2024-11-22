@@ -11,7 +11,7 @@ const {generateAccessToken} = require('../helpers/tokens')
 router.post("/",async (req:Request,res:Response) =>{
    const {loginEmail,loginPassword}=req.body;
    //find user with this email in the databse
-   const userInfo:User = await UserModel.findOne({loginEmail})
+   const userInfo:User = await UserModel.findOne({email:loginEmail})
    //if user exists in the database
    if(userInfo){
       //compare passwords
